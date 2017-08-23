@@ -1,0 +1,9 @@
+com\jetti\rest\Card.class
+com\jetti\flight\ManageUser.class
+com\jetti\flight\User.class
+com\jetti\flight\FlightController.class
+com\jetti\flight\ManageFlight.class
+com\jetti\flight\Reservation.class
+com\jetti\rest\ManageCard.class
+com\jetti\flight\Flight.class
+com\jetti\flight\ManageReservation.class
