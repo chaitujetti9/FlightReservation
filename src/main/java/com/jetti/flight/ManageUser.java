@@ -49,10 +49,21 @@ public class ManageUser {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		List users = null;
+		boolean result= false;
 		try {
 			tx = session.beginTransaction();
-			String hql = "from user u where u.username = '" + username + "'u.password = '" + password + "'";
+			String hql = "from User u where u.username = '" + username + "' and u.password = '" + password + "'";
 			users = session.createQuery(hql).list();
+			if(users.isEmpty())
+			{
+				System.out.println("No such Users");
+				result = true;
+			}
+			else
+			{
+				System.out.println("Yeeeyyyyy, you logged in");
+				result = false;
+			}
 
 		} catch (HibernateException e) {
 			if (tx != null)
@@ -61,12 +72,8 @@ public class ManageUser {
 		} finally {
 			session.close();
 		}
-		if (users.isEmpty()) {
-			return true;
-
-		} else {
-			return false;
-		}
+		
+		return result;
 
 	}
 

@@ -12,25 +12,33 @@
 <body>
 <h2>The following are the flights available:</h2>
 
-<form action = "reserve", method = GET>
+<form action = "reserve", method = POST>
 	
-	<%	List availableFlights = (List) request.getSession().getAttribute("availableFlights");
-
+	<table>
+	<%	List availableFlights = (List) request.getAttribute("availableFlights");
+		
 		for (Iterator iterator = availableFlights.iterator(); iterator.hasNext();) {
-		Flight flight = (Flight) iterator.next();
-		FlightNo: flight.getFlightNo();
-		Source: flight.getSource();
-		Destination: flight.getDestination();
-		Time: flight.getTimeOfFlight();
-		Duration: flight.getDurationOfFlight();
-		Date: flight.getDateOfFlight();
-	} %>
+		Flight flight = (Flight) iterator.next();%>
+		<tr>
+		
+		<td><%= "FlightNo:"+flight.getFlightNo()+" " %>  </td>
+		<td><%= "Source:"+flight.getSource()+" " %> </td>
+		<td><%= "Destination:"+flight.getDestination()+" " %> </td>
+		<td><%= "Time:"+flight.getTimeOfFlight() +" "%> </td>
+		<td><%= "Duration:"+flight.getDurationOfFlight()+" " %> </td>
+		<td><%= "Date:"+flight.getDateOfFlight() +" "%> </td>
+		<td><%= "Price:"+flight.getPrice()+" " %> </td>
+		
+		</tr>
+	<% } %>
+		
+	</table>
 	
 	
 	Enter the flight id:
-	<input type = "text" name = "flightNo"> 
+	<input type = "int" name = "flightNo"> 
 	<input type = "Submit" value = "Reserve">
-	<a href= "index">Edit Search Details</a>
+	<a href= "http://localhost:8080/FlightReservation/index.jsp">Edit Search Details</a>
 
 </form>
 </body>

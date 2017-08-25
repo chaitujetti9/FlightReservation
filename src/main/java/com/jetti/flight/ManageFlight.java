@@ -50,9 +50,10 @@ public class ManageFlight {
 		Session session = factory.openSession();
 		Transaction tx = null;
 		List flights = null;
+//		Flight f = new Flight();
 		try {
 			tx = session.beginTransaction();
-			String hql = "from Flight f where f.source = '"+source+"'f.destination = '"+destination+"'";
+			String hql = "from Flight f where f.source = '"+source+"' and f.destination = '"+destination+"'";
 			flights = session.createQuery(hql).list();
 			for (Iterator iterator = flights.iterator(); iterator.hasNext();) {
 				Flight flight = (Flight) iterator.next();
@@ -82,15 +83,19 @@ public class ManageFlight {
 		List flights = null;
 		try {
 			tx = session.beginTransaction();
-			String hql = "from Flight f where f.source = "+source+"f.destination = '"+destination+"'f.dateOfFlight ='"+dateOfFlight+"'f.seatsAvailable <= '"+tickets+"'";
+			String hql = "from Flight f where f.source = '"+source+"' and f.destination = '"+destination+"' and f.seatsAvailable >= "+tickets;
 			flights = session.createQuery(hql).list();
+			if(flights.isEmpty())
+			{
+				System.out.println("No flights retrieved");
+			}
 			for (Iterator iterator = flights.iterator(); iterator.hasNext();) {
 				Flight flight = (Flight) iterator.next();
 				System.out.print(" Flight No: " + flight.getFlightNo());
 				System.out.print(" Source: " + flight.getSource());
 				System.out.print(" Destination: " + flight.getDestination());
 				System.out.print(" Time: " + flight.getTimeOfFlight());
-				System.out.print(" Duration: " + flight.getTimeOfFlight());
+				System.out.print(" Duration: " + flight.getDurationOfFlight());
 				System.out.print(" Date: " + flight.getDateOfFlight());
 				System.out.println(" Price: "+ flight.getPrice());
 			}

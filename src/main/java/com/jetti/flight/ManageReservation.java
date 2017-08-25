@@ -28,8 +28,7 @@ public class ManageReservation {
 		Integer reservationId = null;
 		try {
 			tx = session.beginTransaction();
-			Reservation reservation = new Reservation(username, flightNo, noOfTickets);
-			reservation.setTime(System.currentTimeMillis());
+			Reservation reservation = new Reservation(username, flightNo, noOfTickets,System.currentTimeMillis());
 			reservationId = (Integer) session.save(reservation);
 			Flight flight = (Flight) session.get(Flight.class, flightNo);
 			int seats = flight.getSeatsAvailable();
@@ -38,8 +37,10 @@ public class ManageReservation {
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)
+			{
 				tx.rollback();
-			e.printStackTrace();
+			}
+				e.printStackTrace();
 		} finally {
 			session.close();
 		}

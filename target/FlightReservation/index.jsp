@@ -29,16 +29,14 @@ tr:nth-child(even) {
 <body>
 
 	<%
-		if (request.getAttribute("responseString") != null) {
+		if (request.getAttribute("responseString") == null) {
 	%>
 	<h2>Welcome to Oasis Airlines Search:</h2>
 	<%
 		} else {
 	%>
 	<h2>
-		<%
-			request.getAttribute("responseString");
-		%>
+		<%=request.getAttribute("responseString")		%>
 	</h2>
 	<%
 		}

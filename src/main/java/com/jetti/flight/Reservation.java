@@ -5,8 +5,12 @@ public class Reservation {
 	int reservationId;
 	long time;
 	String username;
-	int flightNO;
+	int flightNo;
 	int noOfTickets;
+	
+
+	public Reservation() {
+	}
 
 	public int getReservationId() {
 		return reservationId;
@@ -32,12 +36,12 @@ public class Reservation {
 		this.username = username;
 	}
 
-	public int getFlightNO() {
-		return flightNO;
+	public int getFlightNo() {
+		return flightNo;
 	}
 
-	public void setFlightNO(int flightNO) {
-		this.flightNO = flightNO;
+	public void setFlightNo(int flightNo) {
+		this.flightNo = flightNo;
 	}
 
 	public int getNoOfTickets() {
@@ -48,11 +52,12 @@ public class Reservation {
 		this.noOfTickets = noOfTickets;
 	}
 
-	public Reservation(String username, int flightNO, int noOfTickets) {
+	public Reservation(String username, int flightNO, int noOfTickets,long time) {
 		super();
 		this.username = username;
-		this.flightNO = flightNO;
+		this.flightNo = flightNO;
 		this.noOfTickets = noOfTickets;
+		this.time = time;
 	}
 
 }

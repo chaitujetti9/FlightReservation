@@ -12,6 +12,11 @@ public class Flight {
 	Date dateOfFlight;
 	int price;
 	int seatsAvailable;
+	
+
+	public Flight() {
+	}
+
 
 	public Flight(String source, String destination, int durationOfFlight, int timeOfFlight, Date dateOfFlight,
 			int price, int seatsAvailable) {
@@ -25,6 +30,7 @@ public class Flight {
 		this.seatsAvailable = seatsAvailable;
 	}
 
+	
 	public int getSeatsAvailable() {
 		return seatsAvailable;
 	}

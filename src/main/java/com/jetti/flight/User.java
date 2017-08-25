@@ -8,6 +8,11 @@ public class User {
 	String email;
 	String username;
 	String password;
+	
+
+	public User() {
+	
+	}
 
 	public int getUserId() {
 		return userId;

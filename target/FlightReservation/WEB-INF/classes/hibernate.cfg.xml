@@ -12,6 +12,6 @@
 		<!-- List of XML mapping files -->
 		<mapping resource="Flight.hbm.xml" />
 		<mapping resource = "User.hbm.xml"/>
-		<mapping resource = "Reservartion.hbm.xml"/>
+		<mapping resource = "Reservation.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

@@ -9,9 +9,9 @@
 <body>
 <h2>Please verify your details and confirm:</h2>
 <form action = "confirmed", method = POST>
-<%session.getAttribute("username"); %>
-<%session.getAttribute("flightNo"); %>
-<%session.getAttribute("tickets"); %>
+<%=session.getAttribute("username")%>
+<%=session.getAttribute("flightNo")%>
+<%=session.getAttribute("tickets")%>
 
 <input type = "Submit" value="Yes, go ahead and Confirm">
 </form>

@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login</title>
+
+<title>Flights</title>
 <style>
 table {
 	font-family: arial, sans-serif;
@@ -26,34 +27,43 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
+
 	<%
 		if (request.getAttribute("responseString") != null) {
 	%>
-	<h2>Please login to reserve ticket :)</h2>
+	<h2>Welcome to Oasis Airlines Search:</h2>
 	<%
 		} else {
 	%>
 	<h2>
-		<%
-			request.getAttribute("responseString");
+		<%=
+			request.getAttribute("responseString")
 		%>
 	</h2>
 	<%
 		}
 	%>
-	<form name="Login" method="post" action="validate">
+	<form name="FlightSearch" method="post" action="search">
 		<table>
 
 			<tr>
-				<td>Username:</td>
-				<td><input type="text" name="username" /></td>
+				<td>From:</td>
+				<td><input type="text" name="source" /></td>
 			</tr>
 			<tr>
-				<td>Password:</td>
-				<td><input type="password" name="password" /></td>
+				<td>To:</td>
+				<td><input type="text" name="destination" /></td>
+			</tr>
+			<tr>
+				<td>Date:</td>
+				<td><input type="date" name="date" /></td>
+			</tr>
+			<tr>
+				<td>Tickets:</td>
+				<td><input type="int" name="tickets" /></td>
 			</tr>
 		</table>
-		<input type="submit" value="Login" />
+		<input type="submit" value="Search" />
 	</form>
 
 </body>
