@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class FlightController {
 	
 	private Client client;
-	private String REST_SERVICE_URL = "http://localhost:8080/CardService/rest/CardService";
+	private String REST_SERVICE_URL = "http://localhost:8080/CardMicroService/service";
 	private static final String SUCCESS_RESULT="<response>SUCCESS</response>";
 	private static final String PASS = "pass";
 	private static final String FAIL = "fail";
@@ -123,7 +123,7 @@ public class FlightController {
 	      
 	      client = ClientBuilder.newClient();
 	      String callResult = client
-	         .target("http://localhost:8080/CardService/rest/service")
+	         .target("http://localhost:8080/CardMicroService/service")
 	         .path("/validatecard")
 	         .request(MediaType.APPLICATION_XML)
 	         .put(Entity.entity(form,MediaType.APPLICATION_FORM_URLENCODED_TYPE),String.class);
